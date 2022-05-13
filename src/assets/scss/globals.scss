@@ -1,0 +1,31 @@
+// $accent: #f4a261;
+// $text: #ffffff;
+// $bg1: #264653;
+
+// $accent: #5bc0be;
+// $text: #ffffff;
+// $bg1: #0b132b;
+
+$accent: #ff7d00;
+$text: #ffecd1;
+$bg1: #001524;
+
+// default
+// $accent: #faa307;
+// $text: #fff;
+// $bg1: #010101;
+// $bg2: #181818;
+
+// =====================================================
+// Mixins
+// =====================================================
+@mixin sm() {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+@mixin xs() {
+  @media (max-width: 479px) {
+    @content;
+  }
+}
