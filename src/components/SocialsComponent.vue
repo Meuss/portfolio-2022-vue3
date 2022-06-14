@@ -50,7 +50,7 @@ a {
 p {
   margin-bottom: 15px;
   @include xs {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 }
 </style>

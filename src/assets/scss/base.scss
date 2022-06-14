@@ -44,7 +44,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: $bg1;
   @include sm {
-    font-size: 22px;
+    font-size: 18px;
+    line-height: 22px;
   }
 }
 
