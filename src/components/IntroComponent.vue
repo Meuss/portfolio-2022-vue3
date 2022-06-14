@@ -23,6 +23,8 @@ onMounted(() => {
     '&nbsp;animations',
     '&nbsp;UI/UX',
     '&nbsp;templates',
+    '&nbsp;APIs',
+    '&nbsp;design',
     // '&nbsp;with javascript',
     'sites'
   ]

@@ -2,6 +2,8 @@
 import Intro from './components/IntroComponent.vue'
 import Description from './components/DescriptionComponent.vue'
 import Socials from './components/SocialsComponent.vue'
+import Construction from './components/ConstructionComponent.vue'
+import Canvas from './components/CanvasComponent.vue'
 </script>
 
 <template>
@@ -11,7 +13,9 @@ import Socials from './components/SocialsComponent.vue'
       <Description />
     </div>
     <Socials />
+    <Construction />
   </main>
+  <Canvas />
 </template>
 
 <style lang="scss">
