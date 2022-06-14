@@ -4,27 +4,10 @@ import { onMounted } from '@vue/runtime-core'
 onMounted(() => {
   const canvas = document.getElementById('myCanvas')
   const c = canvas.getContext('2d')
-
-  let mouseX
-  let mouseY
-
   canvas.height = window.innerHeight
   canvas.width = window.innerWidth
-
   const canvasWidth = canvas.width
   const canvasHeight = canvas.height
-
-  const maxRadius = 35
-
-  canvas.onmousemove = function (e) {
-    mouseX = e.clientX
-    mouseY = e.clientY
-  }
-
-  canvas.ontouchmove = function (e) {
-    mouseX = e.clientX
-    mouseY = e.clientY
-  }
 
   window.addEventListener('resize', () => {
     canvas.width = window.innerWidth
@@ -52,42 +35,15 @@ onMounted(() => {
       this.yVelocity = Math.random() * 1
     }
 
-    // As distance gets closer to 0, increase radius
-
     this.update = function () {
       this.xCoordinate += this.xVelocity
-      const xDistance = mouseX - this.xCoordinate
-      const yDistance = mouseY - this.yCoordinate
-      const originalRadius = radius
       this.yCoordinate += this.yVelocity
-
-      // Movement Functions
       if (this.xCoordinate + this.radius > canvasWidth || this.xCoordinate - this.radius < 0) {
         this.xVelocity = -this.xVelocity
       }
       if (this.yCoordinate + this.radius > canvasHeight || this.yCoordinate - this.radius < 0) {
         this.yVelocity = -this.yVelocity
       }
-
-      // Radius Decrease Functions
-      // When distance between circle center and mouse on horizontal axis is less than 50, increase radius until it is equal to 35
-      // if (
-      //   xDistance < 70 &&
-      //   xDistance > -70 &&
-      //   this.radius < maxRadius &&
-      //   yDistance < 70 &&
-      //   yDistance > -70
-      // ) {
-      //   this.radius += 2
-      // } else if (
-      //   (xDistance >= 70 && originalRadius < this.radius) ||
-      //   (xDistance <= -70 && originalRadius < this.radius) ||
-      //   (yDistance >= 70 && originalRadius < this.radius) ||
-      //   (yDistance <= -70 && originalRadius < this.radius)
-      // ) {
-      //   this.radius -= 2
-      // }
-
       this.draw()
     }
 
@@ -104,7 +60,7 @@ onMounted(() => {
   const circleArray = []
   const radiusPossibilities = [20, 40, 80]
 
-  for (var i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; i++) {
     const randomXCoordinate = Math.random() * canvasWidth
     const randomYCoordinate = Math.random() * canvasHeight
     const randomRadius = radiusPossibilities[Math.floor(Math.random() * radiusPossibilities.length)]
